@@ -14,7 +14,7 @@
         "text": "02-rt-configmap-volume.md"
       },
       {
-        "title": "Access Pod",
+        "title": "Access service",
         "text": "03-rt-test.md"
       },
       {
