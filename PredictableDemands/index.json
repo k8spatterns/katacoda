@@ -1,19 +1,29 @@
 {
   "title": "Predictable Demands",
   "description": "This example shows how to declare Kubernetes resource profiles to help the cluster in managing your containers.",
+  "difficulty": "Beginner",
+  "time": "10 minutes",
   "details": {
     "steps": [
       {
-        "title": "Step 1",
-        "text": "step1.md"
+        "title": "Create a Pod with runtime requirements",
+        "text": "01-rt-pod-create.md"
       },
       {
-        "title": "Step 2",
-        "text": "step2.md"
+        "title": "Add missing ConfigMap and Volume",
+        "text": "02-rt-configmap-volume.md"
       },
       {
-        "title": "Step 3",
-        "text": "step3.md"
+        "title": "Test Pod",
+        "text": "03-rt-test.md"
+      },
+      {
+        "title": "Deployment with resource profiles",
+        "text": "04-rp-deploy.md"
+      },
+      {
+        "title": "Too tight resource requirements",
+        "text": "05-rp-too-small.md"
       }
     ],
     "intro": {
@@ -24,9 +34,11 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-terminal"
+    "uilayout": "editor-terminal",
+    "uisettings": "yaml",
+    "icon": "fa-kubernetes"
   },
   "backend": {
-    "imageid": "kubernetes-cluster"
+    "imageid": "kubernetes"
   }
 }
