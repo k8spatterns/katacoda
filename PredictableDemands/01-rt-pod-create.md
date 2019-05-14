@@ -1,5 +1,5 @@
 
-<pre class="file" data-filename="pod.yaml" data-target="replace">apiVersion: v1
+<pre class="file" data-filename="pod.yml" data-target="replace">apiVersion: v1
 kind: Pod
 metadata:
   name: random-generator
@@ -11,7 +11,7 @@ spec:
 
 
 
-<pre class="file" data-filename="pod.yaml" data-target="append">    env:
+<pre class="file" data-filename="pod.yml" data-target="append">    env:
     - name: PATTERN
       valueFrom:
         configMapKeyRef:
@@ -20,4 +20,4 @@ spec:
 </pre>
 
 
-<pre class="file" data-filename="pod.yaml" data-target="regexPATTERN">BLA</pre>
+<pre class="file" data-filename="pod.yml" data-target="regexPATTERN">BLA</pre>

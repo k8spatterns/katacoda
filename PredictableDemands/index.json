@@ -33,6 +33,9 @@
       "text": "finish.md"
     }
   },
+  "files": [
+    "pod.yml"
+  ],
   "environment": {
     "uilayout": "editor-terminal",
     "uisettings": "yaml",
