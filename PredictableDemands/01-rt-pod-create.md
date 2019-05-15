@@ -6,10 +6,7 @@ metadata:
 spec:
   containers:
   - image: k8spatterns/random-generator:1.0
-    name: random-generator
-</pre>
-
-
+    name: random-generator</pre>
 
 <pre class="file" data-filename="pod.yml" data-target="append">    env:
     - name: PATTERN
@@ -20,4 +17,4 @@ spec:
 </pre>
 
 
-<pre class="file" data-filename="pod.yml" data-target="regexPATTERN">BLA</pre>
+<pre class="file" data-filename="pod.yml" data-target="regex???">Test</pre>
