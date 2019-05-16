@@ -31,6 +31,18 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "service.yml",
+          "target": "~/"
+        },
+        {
+          "file": "ingress.yml",
+          "target": "~/"
+        }
+      ]
     }
   },
   "files": [
