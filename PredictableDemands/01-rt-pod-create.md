@@ -29,6 +29,6 @@ spec:
           key: pattern
 </pre>
 
-Let's create the pod with
+Let's create the Pod with
 
 `kubectl create -f pod.yml`{{execute}}
