@@ -42,6 +42,6 @@
     "icon": "fa-kubernetes"
   },
   "backend": {
-    "imageid": "minikube"
+    "imageid": "kubernetes"
   }
 }
