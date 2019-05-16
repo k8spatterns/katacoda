@@ -7,6 +7,12 @@ Let's check whether its running
 
 `kubectl get nodes`{{execute}}
 
+Please ensure to wait until the status is "Ready".
+
+Now let's create a simple Pod which references a non-existing ConfigMap `random-generator-config`.
+The Pod itself is a simple REST service which just returns a freshly generated random number each time it is called.
+
+Here's the Pod declaration which you should copy over. It is then saved as "pod.yml"
 
 <pre class="file" data-filename="pod.yml" data-target="replace">apiVersion: v1
 kind: Pod
@@ -16,8 +22,6 @@ spec:
   containers:
   - image: k8spatterns/random-generator:1.0
     name: random-generator</pre>
-
-<pre class="file" data-filename="pod.yml" data-target="append">    env:
     - name: PATTERN
       valueFrom:
         configMapKeyRef:
@@ -25,5 +29,6 @@ spec:
           key: pattern
 </pre>
 
+Let's create the pod with
 
-<pre class="file" data-filename="pod.yml" data-target="regex???">Test</pre>
+`kubectl create -f pod.yml`{{execute}}
