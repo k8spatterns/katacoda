@@ -22,7 +22,7 @@
         "text": "04-rp-deploy.md"
       },
       {
-        "title": "Too tight resource requirements",
+        "title": "To tight resource requirements",
         "text": "05-rp-too-small.md"
       }
     ],
@@ -46,7 +46,7 @@
     }
   },
   "files": [
-    "pod.yml"
+    "pod.yml", "service.yml", "ingress.yml"
   ],
   "environment": {
     "uilayout": "editor-terminal",
