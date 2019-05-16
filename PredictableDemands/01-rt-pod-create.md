@@ -22,6 +22,7 @@ spec:
   containers:
   - image: k8spatterns/random-generator:1.0
     name: random-generator
+    env:
     - name: PATTERN
       valueFrom:
         configMapKeyRef:

@@ -36,11 +36,11 @@
       "host01": [
         {
           "file": "service.yml",
-          "target": "~/"
+          "target": "/root/"
         },
         {
           "file": "ingress.yml",
-          "target": "~/"
+          "target": "/root/"
         }
       ]
     }
