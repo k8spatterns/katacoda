@@ -1,4 +1,4 @@
-This scenario demonstrates the _Predictable Demands_ pattern from (https://k8spatterns.io)[Kubernetes Patterns].
+This scenario demonstrates the _Predictable Demands_ pattern from [Kubernetes Patterns](https://k8spatterns.io).
 
 This pattern is about how you should declare application requirements, whether they are hard runtime dependencies or resource requirements.
 Declaring your requirements is essential for Kubernetes to find the right place for your application within the cluster.
