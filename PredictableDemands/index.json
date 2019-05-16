@@ -46,7 +46,7 @@
     }
   },
   "files": [
-    "pod.yml", "service.yml", "ingress.yml"
+    "pod.yml"
   ],
   "environment": {
     "uilayout": "editor-terminal",
