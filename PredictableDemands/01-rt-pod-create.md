@@ -1,4 +1,13 @@
 
+As very first lets start a simple one node Kubernetes cluster with
+
+`launch.sh`{{execute}}
+
+Let's check whether its running
+
+`kubectl get nodes`{{execute}}
+
+
 <pre class="file" data-filename="pod.yml" data-target="replace">apiVersion: v1
 kind: Pod
 metadata:
