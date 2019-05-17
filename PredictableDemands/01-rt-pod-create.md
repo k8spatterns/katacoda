@@ -27,33 +27,5 @@ and watch how it starts up:
 (you can stop this with <kbd>CTRL-C</kbd> or just start the next command).
 
 As you can see, that Pod won't start because a hard **runtime requirement** is missing.
-We need to add the referenced ConfigMap first.
 
-Let's do this with
-
-`kubectl create cm random-generator-config --from-literal pattern="Predictable Demands"`{{execute interrupt}}
-
-and check the pods again
-
-`kubectl get pods -w`{{execute}}
-
-Perfect! The Pod is now up and running.
-
-Since this shell is running within the Kubernetes cluster, we can reach the Pod directly.
-So extract the Pod's internal IP first with
-
-`pod_id=$(kubectl get pod random-generator -o jsonpath="{.status.podIP}")`{{execute interrupt}}
-
-and access the rest service with
-
-`curl -s http://$pod_id:8080/info | jq .`{{execute}}
-
-Do you spot the environment we just set ?
-
-After we have now seen how we can resolve the hard requirement on a ConfigMap can be, let's check out how _resource profiles_ are working.
-
-`kubectl create -f service.yml`{{execute}}
-
-`curl http://[[HOST_IP]]:31666`{{execute}}
-
-External: http://[[HOST_SUBDOMAIN]]-31666-[[KATACODA_HOST]].environments.katacoda.com/
+In the next step we will add this missing requirement.

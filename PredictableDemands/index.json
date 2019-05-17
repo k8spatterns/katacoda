@@ -12,7 +12,7 @@
       },
       {
         "title": "Add missing ConfigMap and Volume",
-        "text": "02-rt-configmap-volume.md"
+        "text": "02-rt-configmap.md"
       },
       {
         "title": "Access service",
@@ -45,7 +45,11 @@
           "target": "~/"
         },
         {
-          "file": "ingress.yml",
+          "file": "deployment.yml",
+          "target": "~/"
+        },
+        {
+          "file": "resources-patch.yml",
           "target": "~/"
         }
       ]
