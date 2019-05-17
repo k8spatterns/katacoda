@@ -7,7 +7,8 @@
     "steps": [
       {
         "title": "Create a Pod with runtime requirements",
-        "text": "01-rt-pod-create.md"
+        "text": "01-rt-pod-create.md",
+        "code": "launch-kubernetes.sh"
       },
       {
         "title": "Add missing ConfigMap and Volume",
