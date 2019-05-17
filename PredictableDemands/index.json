@@ -28,7 +28,8 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "courseData": "install-bat.sh"
     },
     "finish": {
       "text": "finish.md"

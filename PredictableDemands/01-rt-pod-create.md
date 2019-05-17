@@ -1,13 +1,11 @@
 
-As very first lets start a simple one node Kubernetes cluster with
+While you are reading this we are starting a simple single node Kubernetes cluster for you. Please be patient and wait until the `launch.sh` script has finished.
 
-`launch.sh`{{execute}}
+Now ensure that the node is up
 
-Let's check whether its running
+`kubectl get nodes -w`{{execute}}
 
-`kubectl get nodes`{{execute}}
-
-Please ensure to wait until the status is "Ready".
+Please wait until the status has switched to "Ready" and then press <kbd>CTRL</kbd>-<kbd>C</kbd>.
 
 Now let's create a simple Pod which references a non-existing ConfigMap `random-generator-config`.
 The Pod itself is a simple REST service which just returns a freshly generated random number each time it is called.
