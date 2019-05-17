@@ -7,8 +7,7 @@
     "steps": [
       {
         "title": "Create a Pod with runtime requirements",
-        "text": "01-rt-pod-create.md",
-        "courseData": "launch.sh"
+        "text": "01-rt-pod-create.md"
       },
       {
         "title": "Add missing ConfigMap and Volume",
@@ -36,21 +35,22 @@
     "assets": {
       "host01": [
         {
+          "file": "pod.yml",
+          "target": "~/"
+        },
+        {
           "file": "service.yml",
-          "target": "/root/"
+          "target": "~/"
         },
         {
           "file": "ingress.yml",
-          "target": "/root/"
+          "target": "~/"
         }
       ]
     }
   },
-  "files": [
-    "pod.yml", "service.yml", "ingress.yml"
-  ],
   "environment": {
-    "uilayout": "editor-terminal",
+    "uilayout": "terminal",
     "uisettings": "yaml",
     "icon": "fa-kubernetes"
   },
