@@ -5,7 +5,7 @@ Now ensure that the node is up
 
 `kubectl get nodes -w`{{execute}}
 
-Please wait until the status has switched to "Ready" and then press <kbd>CTRL</kbd>-<kbd>C</kbd>.
+Please wait until the `STATUS` has switched to "Ready" and then press <kbd>CTRL-C</kbd>.
 
 Now let's create a simple Pod which references a non-existing ConfigMap `random-generator-config`.
 The Pod itself is a simple REST service which just returns a freshly generated random number each time it is called.
@@ -24,7 +24,7 @@ and watch how it starts up:
 
 `kubectl get pods -w`{{execute}}
 
-(you can stop this with <kbd>CTRL</kbd>-<kbd>C</kbd> or just start the next command).
+(you can stop this with <kbd>CTRL-C</kbd> or just start the next command).
 
 As you can see, that Pod won't start because a hard **runtime requirement** is missing.
 We need to add the referenced ConfigMap first.
@@ -46,7 +46,7 @@ So extract the Pod's internal IP first with
 
 and access the rest service with
 
-`curl https://$pod_id:8080/info | jq .`{{execute}}
+`curl -s http://$pod_id:8080/info | jq .`{{execute}}
 
 Do you spot the environment we just set ?
 
