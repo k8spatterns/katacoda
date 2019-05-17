@@ -21,9 +21,9 @@ Now let's access the random-generator via a Service of type `nodePort`, which op
 
 The service can be accessed in Katacoda with
 
-`curl http://[[HOST_IP]]:31666/health | jq .`{{execute}}
+`curl -s http://[[HOST_IP]]:31666/info | jq .`{{execute}}
 
-or you can also reach it externally via http://[[HOST_SUBDOMAIN]]-31666-[[KATACODA_HOST]].environments.katacoda.com/
+or you can also reach it externally via http://[[HOST_SUBDOMAIN]]-31666-[[KATACODA_HOST]].environments.katacoda.com/info
 
 The `/health` endpoint exposes also the memory used by the JVM from the POV of the JVM. Can you spot how much memory the random-generator is using ?
 
