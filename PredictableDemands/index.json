@@ -49,7 +49,7 @@
           "target": "~/"
         },
         {
-          "file": "resources-patch.yml",
+          "file": "resources-patch.json",
           "target": "~/"
         }
       ]
