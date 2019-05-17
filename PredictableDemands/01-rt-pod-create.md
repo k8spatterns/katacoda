@@ -51,3 +51,9 @@ and access the rest service with
 Do you spot the environment we just set ?
 
 After we have now seen how we can resolve the hard requirement on a ConfigMap can be, let's check out how _resource profiles_ are working.
+
+`kubectl create -f service.yml`{{execute}}
+
+`curl http://[[HOST_IP]]:31666`{{execute}}
+
+External: http://[[HOST_SUBDOMAIN]]-31666-[[KATACODA_HOST]].environments.katacoda.com/
