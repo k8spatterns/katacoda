@@ -2,7 +2,7 @@ Our Pod needs the ConfigMap `random-generator-config` to be able to start up.
 
 Let's create it with
 
-`kubectl create cm random-generator-config --from-literal pattern="Predictable Demands"`{{execute interrupt}}
+`kubectl create cm random-generator-config --from-literal pattern="Predictable Demands"`{{execute}}
 
 and check the pods again
 

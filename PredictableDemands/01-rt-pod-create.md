@@ -21,6 +21,10 @@ and watch how it starts up:
 (you can stop this with <kbd>CTRL-C</kbd>).
 Eventually you will see how the Pod goes into the status `CreateContainerConfigError`.
 
-As you can see, that Pod won't start because a hard **runtime requirement** is missing.
+This is also reported with
+
+`kubectl describe pod random-generator`{{execute interrupt}}
+
+As you can see, that Pod won't start because the hard **runtime requirement** of a ConfigMap is missing.
 
 In the next step we will add this missing requirement.
