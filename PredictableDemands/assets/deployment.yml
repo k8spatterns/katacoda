@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: random-generator
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: random-generator
@@ -13,7 +13,6 @@ spec:
       labels:
         app: random-generator
     spec:
-      replicas: 3
       containers:
       - image: k8spatterns/random-generator:1.0
         name: random-generator
