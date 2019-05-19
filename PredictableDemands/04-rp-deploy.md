@@ -31,7 +31,7 @@ The [/actuator/health](http://[[HOST_SUBDOMAIN]]-31666-[[KATACODA_HOST]].environ
 
 Try
 
-(`curl -s http://[[HOST_IP]]:31666/actuator/health | jq .`{{execute}})
+`curl -s http://[[HOST_IP]]:31666/actuator/health | jq .`{{execute}}
 
 to examine that health endpoint.
 
