@@ -27,7 +27,13 @@ or you can also reach it externally via http://[[HOST_SUBDOMAIN]]-31666-[[KATACO
 
 (It could be that this might take a bit for the service to be available, so you want to retry if it doesn't succeed the first time)
 
-The [/actuator/health](http://[[HOST_SUBDOMAIN]]-31666-[[KATACODA_HOST]].environments.katacoda.com//actuator/health) (`curl -s http://[[HOST_IP]]:31666/actuator/health`{{execute}}) endpoint exposes also the memory used by the JVM from the POV of the JVM. Can you spot how much memory the random-generator is using ?
+The [/actuator/health](http://[[HOST_SUBDOMAIN]]-31666-[[KATACODA_HOST]].environments.katacoda.com//actuator/health) endpoint exposes also the memory used by the JVM from the POV of the JVM. Can you spot how much memory the random-generator is using ?
+
+Try
+
+(`curl -s http://[[HOST_IP]]:31666/actuator/health | jq .`{{execute}})
+
+to examine that health endpoint.
 
 Everythings looks good now. But what happens if we change the restrictions so that the JVM will blow that away ?
 

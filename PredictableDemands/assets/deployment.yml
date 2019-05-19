@@ -19,6 +19,9 @@ spec:
         ports:
         - containerPort: 8080
           protocol: TCP
+        readinessProbe:
+          exec:
+            command: [ "stat", "/opt/random-generator-ready" ]
         resources:
           # Initial resource request for CPU and memory
           requests:
