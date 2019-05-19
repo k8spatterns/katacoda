@@ -27,8 +27,6 @@ The service can be accessed in Katacoda with
 
 or you can also reach it externally via http://[[HOST_SUBDOMAIN]]-31666-[[KATACODA_HOST]].environments.katacoda.com/info
 
-(It could be that this might take a bit for the service to be available, so you want to retry if it doesn't succeed the first time)
-
 The [/actuator/health](http://[[HOST_SUBDOMAIN]]-31666-[[KATACODA_HOST]].environments.katacoda.com//actuator/health) endpoint exposes also the memory used by the JVM from the POV of the JVM. Can you spot how much memory the random-generator is using ?
 
 Try
