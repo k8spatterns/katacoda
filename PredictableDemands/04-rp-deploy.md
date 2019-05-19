@@ -15,7 +15,9 @@ We can again verify that the Pods are running with
 
 `watch kubectl get pods`{{execute}}
 
-Now let's access the random-generator via a Service of type `nodePort`, which opens up a port 31666 on every node. In our case this is of course only the master node.
+Let's wait until all Pods are ready indicated by a `1/1` in the `READY` column. This means that the Pods pass the readiness check and can be used by a Service.
+
+We create now a Service of type `nodePort`, which opens up a port 31666 on every node. In our case this is of course only the master node.
 
 `kubectl create -f service.yml`{{execute interrupt}}
 
