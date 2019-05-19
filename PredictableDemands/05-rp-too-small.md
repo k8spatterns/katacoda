@@ -18,8 +18,8 @@ First they are restarted because you have changed the Deployment, but you see ho
 
 Now take your time an examine the situation a bit more.
 
-* Examine the pods with `kubectl describe pod random-generator-...`{{copy}} for one of the failing Pods. Can you see there the reason why the Pod has not started ?
-* Also interesting: `kubectl describe deployment random-generator`{{copy}} and `kubectl describe replicaset random-generator-...`{{copy}}
-* How can you fix the requirements again ? Try `kubectl edit deployment random-generator`{{copy}} and set the requests/limits to a sane value again.
+* Examine the pods with `kubectl describe pod random-generator`{{execute}} for one of the failing Pods. Can you see there the reason why the Pod has not started ?
+* Also interesting: `kubectl describe deployment random-generator`{{execute}} and `kubectl describe replicaset random-generator`{{execute}}
+* How can you fix the requirements again ? Try `kubectl edit deployment random-generator`{{execute}} and set the requests/limits to a sane value again.
 
 That ends our quick example of the _Predictable Demands_ pattern.

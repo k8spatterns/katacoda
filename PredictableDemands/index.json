@@ -2,7 +2,7 @@
   "title": "Predictable Demands",
   "description": "This example shows how to declare Kubernetes resource profiles to help the cluster in managing your containers.",
   "difficulty": "Beginner",
-  "time": "10 minutes",
+  "time": "10 - 15 minutes",
   "details": {
     "steps": [
       {
