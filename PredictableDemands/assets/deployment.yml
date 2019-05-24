@@ -8,6 +8,8 @@ spec:
   selector:
     matchLabels:
       app: random-generator
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
