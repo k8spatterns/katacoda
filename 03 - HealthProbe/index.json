@@ -1,5 +1,5 @@
 {
-  "title": "03 - Health Probe",
+  "title": "Health Probe",
   "description": "Learn how to implement readiness and liveness probes to help Kubernetes to manage your applications.",
   "difficulty": "Beginner",
   "time": "10 - 15 minutes",
