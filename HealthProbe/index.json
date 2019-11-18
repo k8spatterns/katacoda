@@ -1,0 +1,50 @@
+{
+  "title": "Health Probe",
+  "description": "Learn how to implement readiness and liveness probes to help Kubernetes to manage your applications.",
+  "difficulty": "Beginner",
+  "time": "10 - 15 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Create a Deployment with liveness and readiness checks",
+        "text": "01-deployment-create.md",
+        "code": "launch.sh"
+      },
+      {
+        "title": "Check how a readiness probe affects the service",
+        "text": "02-readiness.md"
+      },
+      {
+        "title": "Check how a liveness probe affects the application lifecyle",
+        "text": "03-liveness.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "install-bat.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "deployment.yml",
+          "target": "~/"
+        },
+        {
+          "file": "service.yml",
+          "target": "~/"
+        },
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uisettings": "yaml",
+    "icon": "fa-kubernetes"
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
