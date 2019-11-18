@@ -9,7 +9,7 @@ Check the content of this declaration with
 
 `bat deployment.yml`{{execute}}
 
-Note the
+Please look specifically at the `livenessProbe` and `readinessProbe` declaration which do a HTTP based and file based health check, respectively.
 
 Now it's time to create that Pod with
 
@@ -21,10 +21,10 @@ and watch how it starts up the application pods:
 
 (you can stop this with <kbd>CTRL-C</kbd>).
 
-When the pod is up and running (status is `Running`), let's create a Service to access the application.
+When the pod is up and running (status is `1/1 Running`), let's create a Service to access the application.
 We are using here a `NodePort` service with our application listening on a fixed port on every node of our cluster:
 
-`kubectl create -f service.yml`{{execute}}
+`kubectl create -f service.yml`{{execute interrupt}}
 
 The random number service can now be accessed in Katacoda with
 

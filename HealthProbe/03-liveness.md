@@ -22,5 +22,20 @@ Now take your popcorn and watch what happens to our Pod
 
 `kubectl get pods -w`{{execute}}
 
-As you will see, after a restart, the readiness and liveness probe are ok again, as we started a fresh.
+This might take a bit. As you will see, after a single restart, the readiness and liveness probe are ok again, as we started a fresh.
 So, in our example we "fixed" our issue with the out-of-order service just by a restart as the trigger file is recreated after each restart.
+
+This concludes our quick walkthrough, but you don't have to stop here:
+
+* What happens when you scale up to multiple replicas ?
+* Which are the parameters to tune your health checks ? The [Kubernetes API specification](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#probe-v1-core) contains all parameters which you can use here:
+  - `initialDelaySeconds` for the ramp-up time before the first check
+  - `timeoutSeconds` how long to wait for the health check to respond
+  - `periodSeconds` for the check intervals
+  - `failureThreshold` how often for a check to fail before taking an action.
+
+In order to play with these parameters use
+
+`kubectl edit deploy/random-generator`{{execute interrupt}}
+
+and adapt the `livenessProbe` and `readinessProbe` sections.
