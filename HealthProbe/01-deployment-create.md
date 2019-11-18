@@ -19,7 +19,7 @@ and watch how it starts up the application pods:
 
 (you can stop this with <kbd>CTRL-C</kbd>).
 
-When it is up and running, let's create a Service to access the application.
+When the pod is up and running (status is `Running`), let's create a Service to access the application.
 We are using here a `NodePort` service with our application listening on a fixed port on every node of our cluster:
 
 `kubectl create -f service.yml`{{execute}}
@@ -32,4 +32,4 @@ or you can also reach it externally via http://[[HOST_SUBDOMAIN]]-31667-[[KATACO
 
 To access the health check which is used a liveness probe, try
 
-`curl -s http://[[HOST_IP]]:31667/health | jq .`{{execute}}
+`curl -s http://[[HOST_IP]]:31667/actuator/health | jq .`{{execute}}

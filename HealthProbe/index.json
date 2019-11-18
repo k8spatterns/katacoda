@@ -6,7 +6,7 @@
   "details": {
     "steps": [
       {
-        "title": "Create a Deployment with liveness and readiness checks",
+        "title": "Deployment with liveness and readiness checks",
         "text": "01-deployment-create.md",
         "code": "launch-kubernetes.sh"
       },

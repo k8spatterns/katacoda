@@ -16,10 +16,6 @@ spec:
       containers:
       - image: k8spatterns/random-generator:1.0
         name: random-generator
-        env:
-        # Tell random-generator to wait 20 seconds when starting up
-        - name: DELAY_STARTUP
-          value: "20"
         ports:
         - containerPort: 8080
           protocol: TCP
