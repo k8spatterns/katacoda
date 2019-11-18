@@ -9,6 +9,8 @@ Check the content of this declaration with
 
 `bat deployment.yml`{{execute}}
 
+Note the
+
 Now it's time to create that Pod with
 
 `kubectl create -f deployment.yml`{{execute}}
@@ -30,6 +32,6 @@ The random number service can now be accessed in Katacoda with
 
 or you can also reach it externally via http://[[HOST_SUBDOMAIN]]-31667-[[KATACODA_HOST]].environments.katacoda.com/
 
-To access the health check which is used a liveness probe, try
+To access the health check which is used in the liveness probe, try
 
 `curl -s http://[[HOST_IP]]:31667/actuator/health | jq .`{{execute}}
