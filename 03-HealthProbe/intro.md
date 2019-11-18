@@ -4,5 +4,5 @@ In this example we create a Deployment which exposes a _liveness_ and a _readine
 
 After this scenario you know
 
-* how a failing _liveness probe_ will tigger Kubernetes to restart your application.
-* how _readiness probe_ will enable and disable the access to your service.
+* how a failing _liveness probe_ triggers Kubernetes to restart your application.
+* how a _readiness probe_ enables and disables the access to your service.
