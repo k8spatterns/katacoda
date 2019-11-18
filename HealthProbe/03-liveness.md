@@ -18,7 +18,7 @@ To toggle the liveness check, just switch it with
 
 `curl -s http://localhost:8080/toggle-live`{{execute}}
 
-Now take your popcorn and watch what happens to our Pod
+Now grab some popcorn and watch what happens to our Pod
 
 `kubectl get pods -w`{{execute}}
 
