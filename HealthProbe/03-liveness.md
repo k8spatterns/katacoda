@@ -33,6 +33,7 @@ This concludes our quick walkthrough, but you don't have to stop here:
   - `timeoutSeconds` how long to wait for the health check to respond
   - `periodSeconds` for the check intervals
   - `failureThreshold` how often for a check to fail before taking an action.
+  - `successThreshold` how often a check must succeed until a failed check is considered to be ok again.
 
 In order to play with these parameters use
 
