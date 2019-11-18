@@ -8,7 +8,7 @@
       {
         "title": "Create a Deployment with liveness and readiness checks",
         "text": "01-deployment-create.md",
-        "code": "launch.sh"
+        "code": "launch-kubernetes.sh"
       },
       {
         "title": "Check how a readiness probe affects the service",
