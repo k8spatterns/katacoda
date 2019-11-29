@@ -5,23 +5,23 @@ metadata:
   labels:
     project: k8spatterns
     pattern: Controller
-  name: config-watcher-controller
+  name: config-watch-controller
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: config-watcher-controller
+      app: config-watch-controller
   template:
     metadata:
       labels:
         project: k8spatterns
         pattern: Controller
-        app: config-watcher-controller
+        app: config-watch-controller
     spec:
       # A serviceaccount is needed to watch events
       # and to allow for restarting pods. For now its
       # associated with the 'edit' role
-      serviceAccountName: config-watcher-controller
+      serviceAccountName: config-watch-controller
       containers:
       - name: kubeapi-proxy
         image: k8spatterns/kubeapi-proxy
@@ -36,13 +36,13 @@ spec:
                fieldPath: metadata.namespace
         command:
         - "sh"
-        - "/watcher/config-watcher-controller.sh"
+        - "/watcher/controller.sh"
         # Mount script from a config map for ease of change
         volumeMounts:
         - mountPath: "/watcher"
-          name: config-watcher-controller
+          name: controller-script
       volumes:
       # Volume holding the controller script
-      - name: config-watcher-controller
+      - name: controller-script
         configMap:
-          name: config-watcher-controller
+          name: controller-script

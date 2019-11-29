@@ -35,9 +35,9 @@ If you want to run the controller locally, just start a proxy in the background 
 
 and then run the controller script also in the background
 
-`bash controller.sh &`
+`bash controller.sh &`{{execute}}
 
-Just for testing add and remove configmap temporarily
+Just for testing add and remove a configmap temporarily
 
 `kubectl create -f configmap.yml`{{execute}}
 `kubectl delete -f configmap.yml`{{execute}}

@@ -36,10 +36,12 @@ kind: Service
 metadata:
   name: webapp
 spec:
+  type: NodePort
   ports:
   - name: http
     port: 8080
     protocol: TCP
     targetPort: 8080
+    nodePort: 31669
   selector:
     app: webapp

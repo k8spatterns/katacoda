@@ -1,46 +1,43 @@
+Let's now now put our Controller as a container image.
 
+In our deployment that we are going to create we will use a standard base image which has the tools that we need within the script, i.e. `curl` and `jq`. `k8spatterns/curl-jq` is such a simple image.
 
+We will put the script itself into a ConfigMap and mount this ConfigMap as a volume into our deployment so that we can easily start if from there (and also update it if necessary).
 
-You probably already guess it, there will be an _Sidecar_ running in the Pod, in addition to the container which runs this script. This _Sidecar_, or better _Ambassador_ (both are patterns described elsewhere) proxies the real API server form localhost and port 8001. We will see the _Ambassador_ setup in the next step in nore detail.
+Let's create the ConfigMap first:
 
+`kubectl create configmap controller-script --from-file=./controller.sh`{{execute}}
 
+This creates a ConfigMap with a single entry with key `controller.sh` and the controller script as content.
 
+Before we create the final controller Deployment, we have to talk how this script can
+This image has been already created and is available from Docker Hub as `k8spatterns/kubeapi-proxy`.The [Dockerfile](https://github.com/k8spatterns/examples/blob/master/advanced/images/kubeapi-proxy.dockerfile) is very simple, the important part is how `kubectl` is started within the image:
 
+```
+ENTRYPOINT [ \
+  "/bin/ash", "-c", \
+  "/kubectl proxy \
+     --server https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT \
+     --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
+     --token=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token) \
+     --accept-paths='^.*' \
+  "]
+```
 
-While you are reading this we are starting a simple single node Kubernetes cluster for you. Please be patient and wait until the `launch.sh` script has finished.
+This example shows nicely how the Kubernetes API service is exposed as `$KUBERNETES_SERVICE_HOST` and `$KUBERNETES_SERVICE_PORT` environment variables to every Pod an d how the credentials and certificates are picked up from the service account data that is mirrored into the Pod. Kudos to [Marko Lukša](https://github.com/luksa) who uses this proxy trick first in his fine book [Kubernetes in Action](https://www.manning.com/books/kubernetes-in-action).
 
-Now let's create a simple Deployment which defines a _liveness_ and _readiness_ probe.
-The application itself is a simple REST service which just returns a freshly generated random number each time it is called.
+We use this image within our controller Pod as a sidecar to let the controller script access the API server at localhost. This _Sidecar_, or better _Ambassador_ (both are patterns described in the book) proxies the real API server form localhost and port 8001, much the same way as we did for locally running our controller.
 
-In `deployment.yml` you find the definition for this Deployment.
+Check out the full deployment with
 
-Check the content of this declaration with
+`bat controller.yml`{{execute}}
 
-`bat deployment.yml`{{execute}}
+so that we can now deploy it with
 
-Please look specifically at the `livenessProbe` and `readinessProbe` declaration which do a HTTP based and file based health check, respectively.
+`kubectl create -f controller.yml`{{execute}}
 
-Now it's time to create that Pod with
+Check and wait until the controller Pod is running
 
-`kubectl create -f deployment.yml`{{execute}}
+`watch kubectl get pods`{{execute}}
 
-and watch how it starts up the application pods:
-
-`kubectl get pods -w`{{execute}}
-
-(you can stop this with <kbd>CTRL-C</kbd>).
-
-When the pod is up and running (status is `1/1 Running`), let's create a Service to access the application.
-We are using here a `NodePort` service with our application listening on a fixed port on every node of our cluster:
-
-`kubectl create -f service.yml`{{execute interrupt}}
-
-The random number service can now be accessed in Katacoda with
-
-`curl -s http://[[HOST_IP]]:31667/ | jq .`{{execute}}
-
-or you can also reach it externally via http://[[HOST_SUBDOMAIN]]-31667-[[KATACODA_HOST]].environments.katacoda.com/
-
-To access the health check which is used in the liveness probe, try
-
-`curl -s http://[[HOST_IP]]:31667/actuator/health | jq .`{{execute}}
+In order to see our controller in action, let's create a simple web application in the next step.
