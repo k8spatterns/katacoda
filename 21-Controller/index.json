@@ -1,0 +1,62 @@
+{
+  "title": "Controller",
+  "description": "Let's implement a simple Kubernetes Controller with plain shell-script.",
+  "difficulty": "Beginner",
+  "time": "10 - 15 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Setup controller permissions",
+        "text": "01-setup-rbac.md",
+        "code": "launch-kubernetes.sh"
+      },
+      {
+        "title": "Understand ConfigMap watch-controller logic",
+        "text": "02-check-controller-script.md",
+      },
+      {
+        "title": "Understand controller logic",
+        "text": "03-create-controller.md",
+      },
+      {
+        "title": "Check how a readiness probe affects the service",
+        "text": "04-create-webapp.md"
+      },
+      {
+        "title": "Check how a liveness probe affects the application lifecyle",
+        "text": "05-change-configmap.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "install-bat.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "controller.sh"
+          "target": "~/"
+        },
+        {
+          "file": "controller.yml"
+          "target": "~/"
+        },
+        {
+          "file": "web-app.yml",
+          "target": "~/"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uisettings": "yaml",
+    "icon": "fa-kubernetes"
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
