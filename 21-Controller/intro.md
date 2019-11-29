@@ -4,7 +4,7 @@ This controller monitors all ConfigMaps which carry an annotation `k8spatterns.i
 
 That way you can support hot-pickup of your ConfigMap changes for application that don't support hot reload of configuration or use the ConfigMap's values as environment variables.
 
-Here you will learn ....
+Here you will learn:
 
 * how to write a simple shell-based Controller which triggers on annotations
 * how to easily talk to the Kubernetes API server from within a container with the help of a Sidecar

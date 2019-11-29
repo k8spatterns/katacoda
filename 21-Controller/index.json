@@ -37,6 +37,10 @@
     "assets": {
       "host01": [
         {
+          "file": "rbac.yml",
+          "target": "~/"
+        },
+        {
           "file": "controller.sh",
           "target": "~/"
         },
@@ -56,7 +60,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-terminal",
+    "uilayout": "terminal",
     "uisettings": "yaml",
     "icon": "fa-kubernetes"
   },
