@@ -7,7 +7,7 @@
     "steps": [
       {
         "title": "Setup controller permissions",
-        "text": "01-setup-rbac.md",
+        "text": "01-setup-rbac.md"
       },
       {
         "title": "Understand ConfigMap watch-controller logic",
