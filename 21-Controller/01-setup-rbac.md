@@ -1,6 +1,6 @@
 Before we start we need to setup permissions so that our Controller is able to connect to the API server and is allowed to read ConfigMap relevant events and to kill Pods
 
-For simplity reasons, we are re-using the `edit` role. For more realistic setups you should restrict the permissions for your controller to only those permissions which are required to perform the action.
+For the sake of simplicity, we are re-using the standard `edit` role. For more realistic setups you should restrict the permissions for your controller to only those permissions which are required to perform the action.
 
 After the Kubernetes cluster is initialized, let's check the service account `config-watcher-controller` and the role we are using:
 

@@ -19,10 +19,7 @@ done
 The variables used here are defined in the top of the script as
 
 ```bash
-# Namespace to watch (or 'default' if not given)
 namespace=${WATCH_NAMESPACE:-default}
-
-# API URL setup. Requires an ambassador API proxy running side-by-side on localhost
 base=http://localhost:8001
 ns=namespaces/$namespace
 ```
@@ -31,7 +28,7 @@ So, by default this controller watches on the `default` namespace and reaches ou
 
 If you want to run the controller locally, just start a proxy in the background like with
 
-`kubectl proxy --port=8001 &`{{execute}}
+`kubectl proxy --port=8001 &`{{execute interrupt}}
 
 and then run the controller script also in the background
 

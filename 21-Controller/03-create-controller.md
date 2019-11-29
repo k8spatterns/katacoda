@@ -30,7 +30,7 @@ We use this image within our controller Pod as a sidecar to let the controller s
 
 Check out the full deployment with
 
-`bat controller.yml`{{execute}}
+`bat controller.yml`{{execute interrupt}}
 
 so that we can now deploy it with
 

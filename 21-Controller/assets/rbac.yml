@@ -2,17 +2,17 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: config-watcher-controller
+  name: config-watch-controller
 ---
 
 # Bind to 'edit' role to allow for watching resources and restarting pods
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: config-watcher-controller
+  name: config-watch-controller
 subjects:
 - kind: ServiceAccount
-  name: config-watcher-controller
+  name: config-watch-controller
 roleRef:
   name: edit
   kind: ClusterRole
