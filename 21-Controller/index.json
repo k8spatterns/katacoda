@@ -59,11 +59,11 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-terminal",
+    "uilayout": "terminal",
     "uisettings": "yaml",
     "icon": "fa-kubernetes"
   },
   "backend": {
-    "imageid": "kubernetes-cluster"
+    "imageid": "kubernetes"
   }
 }
