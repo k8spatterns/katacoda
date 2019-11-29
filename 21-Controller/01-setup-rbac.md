@@ -8,6 +8,6 @@ After the Kubernetes cluster is initialized, let's check the service account `co
 
 Let's apply them to the cluster now so that we can use it later for our Controller deployment:
 
-`kubectl apply -f rbac.yml`{{execute HOST2}}
+`kubectl apply -f rbac.yml`{{execute HOST1}}
 
 Now it's time to dive into the logic of our simple Controller in the next step.
