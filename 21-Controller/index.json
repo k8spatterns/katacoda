@@ -1,7 +1,7 @@
 {
   "title": "Controller",
   "description": "Let's implement a simple Kubernetes Controller with plain shell-script.",
-  "difficulty": "Beginner",
+  "difficulty": "Intermediate",
   "time": "10 - 15 minutes",
   "details": {
     "steps": [
@@ -12,18 +12,18 @@
       },
       {
         "title": "Understand ConfigMap watch-controller logic",
-        "text": "02-check-controller-script.md",
+        "text": "02-check-controller-script.md"
       },
       {
-        "title": "Understand controller logic",
-        "text": "03-create-controller.md",
+        "title": "Create Controller deployment",
+        "text": "03-create-controller.md"
       },
       {
-        "title": "Check how a readiness probe affects the service",
+        "title": "Create ConfigMap to watch and a sample Web application",
         "text": "04-create-webapp.md"
       },
       {
-        "title": "Check how a liveness probe affects the application lifecyle",
+        "title": "Change the ConfigMap and then 🍿",
         "text": "05-change-configmap.md"
       }
     ],
@@ -37,11 +37,15 @@
     "assets": {
       "host01": [
         {
-          "file": "controller.sh"
+          "file": "controller.sh",
           "target": "~/"
         },
         {
-          "file": "controller.yml"
+          "file": "controller.yml",
+          "target": "~/"
+        },
+        {
+          "file": "configmap.yml",
           "target": "~/"
         },
         {
@@ -52,7 +56,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "terminal-terminal",
     "uisettings": "yaml",
     "icon": "fa-kubernetes"
   },
