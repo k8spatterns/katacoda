@@ -2,7 +2,7 @@ Before we start we need to setup permissions so that our Controller is able to c
 
 For simplity reasons, we are re-using the `edit` role. For more realistic setups you should restrict the permissions for your controller to only those permissions which are required to perform the action.
 
-First check the service account `config-watcher-controller` and the role we are using:
+After the Kubernetes cluster is initialized, let's check the service account `config-watcher-controller` and the role we are using:
 
 `bat rbac.yml`{{execute T1}}
 
