@@ -4,4 +4,4 @@ curl -L -o /tmp/bat.deb https://github.com/sharkdp/bat/releases/download/v${bat_
 dpkg -i /tmp/bat.deb
 rm /tmp/bat.deb
 
-launch-kubernetes.sh
+launch.sh
