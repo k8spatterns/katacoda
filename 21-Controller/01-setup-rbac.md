@@ -4,10 +4,10 @@ For simplity reasons, we are re-using the `edit` role. For more realistic setups
 
 After the Kubernetes cluster is initialized, let's check the service account `config-watcher-controller` and the role we are using:
 
-`bat rbac.yml`{{execute HOST1}}
+`bat rbac.yml`{{execute}}
 
 Let's apply them to the cluster now so that we can use it later for our Controller deployment:
 
-`kubectl apply -f rbac.yml`{{execute HOST1}}
+`kubectl apply -f rbac.yml`{{execute}}
 
 Now it's time to dive into the logic of our simple Controller in the next step.

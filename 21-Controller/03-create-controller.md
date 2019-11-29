@@ -1,3 +1,12 @@
+
+
+
+You probably already guess it, there will be an _Sidecar_ running in the Pod, in addition to the container which runs this script. This _Sidecar_, or better _Ambassador_ (both are patterns described elsewhere) proxies the real API server form localhost and port 8001. We will see the _Ambassador_ setup in the next step in nore detail.
+
+
+
+
+
 While you are reading this we are starting a simple single node Kubernetes cluster for you. Please be patient and wait until the `launch.sh` script has finished.
 
 Now let's create a simple Deployment which defines a _liveness_ and _readiness_ probe.
