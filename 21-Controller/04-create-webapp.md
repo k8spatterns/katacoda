@@ -1,4 +1,4 @@
-We use a very simple HTTP server deployment to test our ConfigMap watch controller.
+We use a straightforward HTTP server deployment to test our ConfigMap watch controller.
 
 Have a look at its Deployment:
 
@@ -18,15 +18,15 @@ Let's deploy that application with
 
 If you check with
 
-`kubectl describe deployment webapp`{{execute}}
+`kubectl get pods`{{execute}}
 
-you will see that it doesn't start up.
+you will see that it doesn't startup.
 
-Ah, we forgot to setup the ConfigMap which is referenced to in our Deployment. Let's create one"
+Ah, we forgot to set up the ConfigMap which is referenced to in our Deployment. Let's create one.
 
 `bat configmap.yml`{{execute}}
 
-Please note the annotation with a selector to the Pods that we want to restart when this ConfigMap changes and also that Deployment `webapp` matches this selector.
+Please note the annotation with a selector to the Pods that we want to restart. This selector is applied when the ConfigMap changes and it will find all Pods that belong to the `webapp` Deployment.
 
 When we create the ConfigMap with
 
@@ -36,8 +36,8 @@ you will see our web app Pod starting:
 
 `kubectl get pods`{{execute}}
 
-In addition, a service of type `nodePort` is deployed, so that we can easily test it locally.
+Also, a service of type `nodePort` is deployed, so that we can quickly test it locally.
 
 `curl -s http://[[HOST_IP]]:31669`{{execute}}
 
-In the final step we will adapt this friendly message just by updating the ConfigMap `webapp-config` and let our controller do the dirty work.
+In the final step, we will adapt this friendly message just by updating the ConfigMap `webapp-config` and let our controller do the dirty work.

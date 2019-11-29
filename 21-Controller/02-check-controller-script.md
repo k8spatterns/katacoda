@@ -1,12 +1,12 @@
 Now let's see how our ConfigMap Watch-Controller works.
 
-It is implemented in an shell script `controller.sh` which we will later put into a container image. The shell script consists of several function.
+It is implemented in a shell script `controller.sh` which we will later put into a container image. The shell script consists of several functions.
 
-Let's have a look to the main loop:
+Let's have a look at the main loop:
 
 `bat -r 13:39 controller.sh`{{execute}}
 
-This is the main loop which endlessly queries the API server in a watch mode:
+This main loop queries the API server in a watch mode, resulting in a stream of events:
 
 ```bash
 # Event loop listening for changes in config maps
@@ -24,9 +24,9 @@ base=http://localhost:8001
 ns=namespaces/$namespace
 ```
 
-So, by default this controller watches on the `default` namespace and reaches out to the API server via `http://localhost:8001`. How does this work ?
+So, by default, this controller watches on the `default` namespace and reaches out to the API server via `http://localhost:8001`. How does this work?
 
-If you want to run the controller locally, just start a proxy in the background like with
+If you want to run the controller locally, start a proxy in the background like with
 
 `kubectl proxy --port=8001 &`{{execute interrupt}}
 
@@ -34,24 +34,24 @@ and then run the controller script also in the background
 
 `bash controller.sh &`{{execute}}
 
-Just for testing add and remove a configmap temporarily
+Just for testing add and remove a ConfigMap temporarily
 
 `kubectl create -f configmap.yml`{{execute}}
 `kubectl delete -f configmap.yml`{{execute}}
 
-Can you see how the events are processed ?
+Can you see how the events are processed?
 
-To clean up, lets kill the background processes
+Let's kill the background processes to clean up:
 
 `kill %1 %2`{{execute}}
 
-In the next section we will see how we can use an _Ambassador_ for implementing a similar proxy within a Pod.
+In the next section, we will see how we can use an _Ambassador_ for implementing a similar proxy within a Pod.
 
 ------------
 
-Back to our script. The query option `watch=true` in the API server request causes the API server to not close the connection but send events to the client as they come in.
+Now back to our script. The query option `watch=true` in the API server request causes the API server not to close the connection but send events to the client as they come in.
 
-Within the loop we are using `jq` and jsonpath to extract certain fields from the events as they come in. Such an event looks like
+Within the loop, we are using `jq` and jsonpath to extract individual fields from the events as they come in. Such an event looks like
 
 ```json
 {
@@ -88,7 +88,7 @@ local annotations=$(echo "$event" | jq -r '.object.metadata.annotations')
 
 various fields are extracted from the received event via `jq`.
 
-If the ConfigMap carries an annotation `k8spatterns.io/podDeleteSelector`, then its value is extracted and UIR decoded. This happens with the straight-forward jq expression:
+If the ConfigMap carries an annotation `k8spatterns.io/podDeleteSelector`, then its value is extracted, and URI decoded. This extraction happens with the straight-forward jq expression:
 
 ```
 local pod_selector=$(echo $annotations | \
@@ -106,4 +106,4 @@ deleted with the function in
 
 ------------
 
-Now that we understand how the controller can restart Pods based on ConfigMap `MODIFIED` events, lets now see in the next step how we can deploy it.
+Now that we understand how the controller can restart Pods based on ConfigMap `MODIFIED` events lets now see in the next step how we can deploy it.

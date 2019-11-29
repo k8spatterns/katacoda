@@ -1,6 +1,6 @@
 {
   "title": "Controller",
-  "description": "Let's implement a simple Kubernetes Controller with plain shell-script.",
+  "description": "Let's implement a simple Kubernetes Controller in plain shell script.",
   "difficulty": "Intermediate",
   "time": "20 minutes",
   "details": {
