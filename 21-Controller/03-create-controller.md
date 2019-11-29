@@ -34,7 +34,7 @@ Check out the full deployment with
 
 so that we can now deploy it with
 
-`kubectl create -f controller.yml`{{execute}}
+`kubectl create -f controller.yml`{{execute interrupt}}
 
 Check and wait until the controller Pod is running
 

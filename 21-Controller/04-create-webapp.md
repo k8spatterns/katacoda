@@ -2,7 +2,7 @@ We use a very simple HTTP server deployment to test our ConfigMap watch controll
 
 Have a look at its Deployment:
 
-`bat web-app.yml`
+`bat webapp.yml`{{execute interrupt}}
 
 The web service is probably the simplest HTTP Server possible. [k8spatterns/mini-http-server](https://github.com/k8spatterns/examples/blob/master/advanced/images/mini-http-server.dockerfile) uses just netcat to expose the content of the environment variable `$MESSAGE` as HTTP response:
 
@@ -14,11 +14,11 @@ done
 
 Let's deploy that application with
 
-`kubectl apply -f web-app.yml`{{execute}}
+`kubectl apply -f webapp.yml`{{execute interrupt}}
 
 If you check with
 
-`kubectl describe deployment web-app`{{execute}}
+`kubectl describe deployment webapp`{{execute}}
 
 you will see that it doesn't start up.
 
@@ -38,6 +38,6 @@ you will see our web app Pod starting:
 
 In addition, a service of type `nodePort` is deployed, so that we can easily test it locally.
 
-`curl -s http://[[HOST_IP]]:31669/`{{execute}}
+`curl -s http://[[HOST_IP]]:31669`{{execute}}
 
 In the final step we will adapt this friendly message just by updating the ConfigMap `webapp-config` and let our controller do the dirty work.

@@ -53,7 +53,7 @@
           "target": "~/"
         },
         {
-          "file": "web-app.yml",
+          "file": "webapp.yml",
           "target": "~/"
         }
       ]
