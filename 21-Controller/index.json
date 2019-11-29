@@ -2,7 +2,7 @@
   "title": "Controller",
   "description": "Let's implement a simple Kubernetes Controller with plain shell-script.",
   "difficulty": "Intermediate",
-  "time": "10 - 15 minutes",
+  "time": "20 minutes",
   "details": {
     "steps": [
       {
