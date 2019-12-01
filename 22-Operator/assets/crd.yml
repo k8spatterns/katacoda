@@ -7,22 +7,22 @@ metadata:
 spec:
   scope: Namespaced
   group: k8spatterns.io
+  # Additional columns to print when in kubectl get
+  additionalPrinterColumns:
+  - name: configmap
+    description: Name of ConfigMap to watch
+    type: string
+    JSONPath: .spec.configMap
+  - name: podselector
+    description: Selector for Pods to restart
+    type: object
+    JSONPath: .spec.podSelector
   versions:
   - name: v1
     # Enabled
     served: true
     # The version stored in the backend
     storage: true
-    # Additional columns to print when in kubectl get
-    additionalPrinterColumns:
-    - name: configmap
-      description: Name of ConfigMap to watch
-      type: string
-      JSONPath: .spec.configMap
-    - name: podselector
-      description: Selector for Pods to restart
-      type: object
-      JSONPath: .spec.podSelector
   names:
     # Kind of this CRD
     kind: ConfigWatcher
