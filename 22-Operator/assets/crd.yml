@@ -1,6 +1,6 @@
 # CRD connecting a ConfigMap with a set of pods which needs to
 # be restarted when the ConfigMap changes
-apiVersion: apiextensions.k8s.io/v1
+apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   name: configwatchers.k8spatterns.io
@@ -9,6 +9,10 @@ spec:
   group: k8spatterns.io
   versions:
   - name: v1
+    # Enabled
+    served: true
+    # The version stored in the backend
+    storage: true
     # Additional columns to print when in kubectl get
     additionalPrinterColumns:
     - name: configmap
@@ -26,7 +30,7 @@ spec:
     singular: configwatcher
     plural: configwatchers
     # How to access the CRDs as well (e.g. with "kubectl get cw")
-    shortnames: [ cw ]
+    shortNames: [ cw ]
     # Adds Configwatcher to the "all" category (e.g. "kubectl get all")
     categories: [ all ]
   validation:
