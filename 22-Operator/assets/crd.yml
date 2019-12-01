@@ -1,40 +1,45 @@
----
 # CRD connecting a ConfigMap with a set of pods which needs to
 # be restarted when the ConfigMap changes
-apiVersion: apiextensions.k8s.io/v1beta1
+apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: configwatchers.k8spatterns.io
 spec:
   scope: Namespaced
   group: k8spatterns.io
-  version: v1
+  versions:
+  - name: v1
+    # Additional columns to print when in kubectl get
+    additionalPrinterColumns:
+    - name: configmap
+      description: Name of ConfigMap to watch
+      type: string
+      JSONPath: .spec.configMap
+    - name: podselector
+      description: Selector for Pods to restart
+      type: object
+      JSONPath: .spec.podSelector
   names:
+    # Kind of this CRD
     kind: ConfigWatcher
+    # How to access them via client and REST api
     singular: configwatcher
     plural: configwatchers
+    # How to access the CRDs as well (e.g. with "kubectl get cw")
+    shortnames: [ cw ]
+    # Adds Configwatcher to the "all" category (e.g. "kubectl get all")
+    categories: [ all ]
   validation:
+    # Validation schema
     openAPIV3Schema:
       properties:
         spec:
           properties:
             configMap:
               type: string
-              description: "Name of the ConfigMap to monitor for changes"
+              description: Name of the ConfigMap to monitor for changes
             podSelector:
               type: object
-              description: "Label selector used for selecting Pods"
+              description: Label selector used for selecting Pods
               additionalProperties:
                 type: string
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: config-watcher-crd
-rules:
-- apiGroups:
-  - k8spatterns.io
-  resources:
-  - configwatchers
-  - configwatchers/finalizers
-  verbs: [ get, list, create, update, delete, deletecollection, watch ]

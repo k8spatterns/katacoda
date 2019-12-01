@@ -1,4 +1,4 @@
-In this _Operator_ pattern_ we expand on the [_Controller_](../21-controller) pattern and introduce a Custom Resource Definition for our ConfiMap watch controller. So if you haven't run the Controller scenario we recommend to do so now.
+In this _Operator_ pattern_ we expand on the [_Controller_](21-controller) pattern and introduce a Custom Resource Definition for our ConfiMap watch controller. So if you haven't run the Controller scenario we recommend to do so now.
 
 So, instead of annotating a ConfigMap with a Pod selector we use a dedicated custom resource `ConfigWatcher`  which contains a reference to the ConfigMap to watch and a selector for the Pods to restart in case the ConfigMap has changed.
 

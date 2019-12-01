@@ -45,6 +45,10 @@
           "target": "~/"
         },
         {
+          "file": "crd-role.yml",
+          "target": "~/"
+        },
+        {
           "file": "operator.sh",
           "target": "~/"
         },
