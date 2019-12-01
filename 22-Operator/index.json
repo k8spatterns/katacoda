@@ -1,0 +1,70 @@
+{
+  "title": "Controller",
+  "description": "Let's implement a simple Kubernetes Controller in plain shell script.",
+  "difficulty": "Intermediate",
+  "time": "20 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "A ConfigWatcher custom resource",
+        "text": "01-register-crd.md",
+        "code": "launch-kubernetes.sh"
+      },
+      {
+        "title": "Understand Operator logic",
+        "text": "02-check-operator-script.md"
+      },
+      {
+        "title": "Create Operator deployment",
+        "text": "03-create-operator.md"
+      },
+      {
+        "title": "A sample Web application using a ConfigMap",
+        "text": "04-create-webapp.md"
+      },
+      {
+        "title": "Create a ConfigWatcher resource",
+        "text": "05-create-cr.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "install.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "config-watcher.yml",
+          "target": "~/"
+        },
+        {
+          "file": "crd.yml",
+          "target": "~/"
+        },
+        {
+          "file": "operator.sh",
+          "target": "~/"
+        },
+        {
+          "file": "operator.yml",
+          "target": "~/"
+        },
+        {
+          "file": "webapp.yml",
+          "target": "~/"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uisettings": "yaml",
+    "icon": "fa-kubernetes"
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
