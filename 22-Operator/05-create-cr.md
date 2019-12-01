@@ -24,11 +24,15 @@ Now that everything is set up let's adapt the web applications' configuration to
 
 Does our web application pick up this new configuration? Let's check (you might have to wait a bit for the Pod to come up)
 
-`curl -s http://[[HOST_IP]]:31669`{{execute}}
+`curl -s http://[[HOST_IP]]:31670`{{execute}}
 
 Heureka! You can verify that it was indeed our controller who performed the restart of the Pod by checking the operator logs:
 
-`pod=$(kubectl get pod -o name | grep operator | sed -e "s/^pods\///)`{{execute}}
+`pod=$(kubectl get pod -o name | grep operator | sed -e "s/^pods\///")`{{execute}}
 `kubectl log $pod -c config-watcher`{{execute}}
+
+Finally let's check how our resource is shown via `kubectl`:
+
+`kubectl get cw`{{execute}}
 
 That's the end of our short introduction into the world of operators.

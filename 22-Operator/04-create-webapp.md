@@ -1,8 +1,4 @@
-We use a straightforward HTTP server deployment to test our ConfigMap watch controller.
-
-Have a look at its Deployment:
-
-`bat webapp.yml`{{execute interrupt}}
+We use a straightforward HTTP server deployment to test our ConfigMap watch _Operator_.
 
 The web service is probably the simplest HTTP Server possible. [k8spatterns/mini-http-server](https://github.com/k8spatterns/examples/blob/master/advanced/images/mini-http-server.dockerfile) uses just netcat to expose the content of the environment variable `$MESSAGE` as HTTP response:
 
@@ -31,6 +27,6 @@ Let's deploy that application and the ConfigMap:
 
 Also, a service of type `nodePort` is deployed, so that we can quickly test it locally.
 
-`curl -s http://[[HOST_IP]]:31669`{{execute}}
+`curl -s http://[[HOST_IP]]:31670`{{execute}}
 
 Finally, we are now creating a custom resource `ConfigWatcher` to connect the dots.
