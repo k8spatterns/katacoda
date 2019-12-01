@@ -16,9 +16,15 @@ This method in turn fetches all `ConfigWatcher` resources that refer to the Conf
 
 `bat -r 41:50 operator.sh`{{execute}}
 
-For every of those `ConfigMaps` first the label selector is extracted in `extract_label_selector_from_watcher` to get a format suitable for a deletion of the Pods in `delete_pods_with_selector`:
+For every of those `ConfigMaps` first the label selector is extracted in `extract_label_selector_from_watcher`
+
+`bat -r 52:63 operator.sh`{{execute}}
+
+to get a format suitable for a deletion of the Pods in `delete_pods_with_selector`:
 
 `bat -r 65:85 operator.sh`{{execute}}
+
+The Pod deletion is simular to the way how the controller deleted Pods.
 
 ------------
 

@@ -68,8 +68,8 @@ spec:
         - "/watcher/operator.sh"
         volumeMounts:
         - mountPath: "/watcher"
-          name: config-watcher-operator
+          name: operator-script
       volumes:
-      - name: config-watcher-operator
+      - name: operator-script
         configMap:
-          name: config-watcher-operator
+          name: operator-script

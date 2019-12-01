@@ -1,4 +1,4 @@
-Let's now put our Controller as a container image.
+Let's now put our Operator as a container image, the same way as we did for our controller examples.
 
 In our deployment that we are going to create we will use a standard base image which has the tools that we need within the script, i.e. `curl` and `jq`. `k8spatterns/curl-jq` is such a simple image.
 
@@ -6,38 +6,22 @@ We will put the script itself into a ConfigMap and mount this ConfigMap as a vol
 
 Let's create the ConfigMap first:
 
-`kubectl create configmap controller-script --from-file=./controller.sh`{{execute}}
+`kubectl create configmap operator-script --from-file=./operator.sh`{{execute}}
 
-This command creates a ConfigMap with a single entry with key `controller.sh` and the controller script as content.
+This command creates a ConfigMap with a single entry with key `operator.sh` and the operator script as content.
 
-Before we create the final controller Deployment, we have to talk about how this script can
-This image has been already created and is available from Docker Hub as `k8spatterns/kubeapi-proxy`.The [Dockerfile](https://github.com/k8spatterns/examples/blob/master/advanced/images/kubeapi-proxy.dockerfile) is very simple, the critical part is how `kubectl` is started within the image:
+We use again `k8spatterns/kubeapi-proxy` as a Sidecar our operator Pod as a sidecar to let the operator script access the API server at localhost. This _Sidecar_, or better _Ambassador_ (both are patterns described in the book) proxies the real API server form localhost and port 8001, much the same way as we did for locally running our operator.
 
-```
-ENTRYPOINT [ \
-  "/bin/ash", "-c", \
-  "/kubectl proxy \
-     --server https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT \
-     --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
-     --token=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token) \
-     --accept-paths='^.*' \
-  "]
-```
+Check out the full deployment, along with the proper permission setup to be able to watch ConfigMaps and delete pods:
 
-This example shows nicely how the Kubernetes API service is exposed as `$KUBERNETES_SERVICE_HOST` and `$KUBERNETES_SERVICE_PORT` environment variables to every Pod and how the credentials and certificates are picked up from the service account data that is mirrored into the Pod. Kudos to [Marko Lukša](https://github.com/luksa) who uses this proxy trick first in his excellent book [Kubernetes in Action](https://www.manning.com/books/kubernetes-in-action).
-
-We use this image within our controller Pod as a sidecar to let the controller script access the API server at localhost. This _Sidecar_, or better _Ambassador_ (both are patterns described in the book) proxies the real API server form localhost and port 8001, much the same way as we did for locally running our controller.
-
-Check out the full deployment with
-
-`bat controller.yml`{{execute interrupt}}
+`bat operator.yml`{{execute interrupt}}
 
 so that we can now deploy it with
 
-`kubectl create -f controller.yml`{{execute interrupt}}
+`kubectl create -f operator.yml`{{execute interrupt}}
 
-Check and wait until the controller Pod is running.
+Check and wait until the operator Pod is running.
 
 `watch kubectl get pods`{{execute}}
 
-To see our controller in action, let's create a simple web application in the next step.
+To see our operator in action, let's create a simple web application in the next step.
