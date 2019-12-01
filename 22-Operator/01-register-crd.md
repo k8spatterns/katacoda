@@ -23,10 +23,10 @@ This CRD contains the kind, group and version and some other extra information l
 
 Let's apply it to our cluster:
 
-`kubectl apply -f crd.yml`
+`kubectl apply -f crd.yml`{{execute}}
 
 In addition we create a role `config-watcher-crd` which grants access to this `ConfigWatcher` custom resources, so that later our operator can monitor changes on these resources:
 
-`kubectl apply -f crd-role.yml`
+`kubectl apply -f crd-role.yml`{{execute}}
 
 In the next step lets check out the logic of our operator which uses instances of the `ConfigWatcher` CRD as input.
