@@ -28,4 +28,4 @@ The Pod deletion is simular to the way how the controller deleted Pods.
 
 ------------
 
-Now that we understand how the Operator can restart Pods based on `ConfigWatcher` lets now see in the next step how we can deploy that script.
+Now that we understand how the _Operator_ can restart Pods based on `ConfigWatcher` lets now see in the next step how we can deploy that script.

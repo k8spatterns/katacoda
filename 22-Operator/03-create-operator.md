@@ -1,4 +1,4 @@
-Let's now put our Operator as a container image, the same way as we did for our controller examples.
+Let's now put our _Operator_ as a container image, the same way as we did for our controller examples.
 
 In our deployment that we are going to create we will use a standard base image which has the tools that we need within the script, i.e. `curl` and `jq`. `k8spatterns/curl-jq` is such a simple image.
 

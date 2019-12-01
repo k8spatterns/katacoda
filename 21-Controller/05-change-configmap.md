@@ -8,7 +8,7 @@ Does our web application pick up this new configuration? Let's check (you might 
 
 Heureka! You can verify that it was indeed our controller who performed the restart of the Pod by checking the controller logs:
 
-`pod=$(kubectl get pod -o name | grep webapp | sed -e "s/^pods\///)`{{execute}}
+`pod=$(kubectl get pod -o name | grep controller | sed -e "s/^pods\///)`{{execute}}
 `kubectl log $pod -c config-watcher`{{execute}}
 
 This last check concludes our quick tour through the world of controllers.

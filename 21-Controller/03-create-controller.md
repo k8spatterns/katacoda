@@ -10,8 +10,8 @@ Let's create the ConfigMap first:
 
 This command creates a ConfigMap with a single entry with key `controller.sh` and the controller script as content.
 
-Before we create the final controller Deployment, we have to talk about how this script can
-This image has been already created and is available from Docker Hub as `k8spatterns/kubeapi-proxy`.The [Dockerfile](https://github.com/k8spatterns/examples/blob/master/advanced/images/kubeapi-proxy.dockerfile) is very simple, the critical part is how `kubectl` is started within the image:
+Before we create the final controller Deployment, we have to talk about how this script can access the API server for watching for resource changes. We use an _Ambassador_ which proxies a port on localhost to the API server's rest endpoint, including the complete security setup.
+The sidecar image for the _Ambassador_ has been already created and is available from Docker Hub as `k8spatterns/kubeapi-proxy`.The [Dockerfile](https://github.com/k8spatterns/examples/blob/master/advanced/images/kubeapi-proxy.dockerfile) is very simple, the important part is how `kubectl` is started within the image:
 
 ```
 ENTRYPOINT [ \
