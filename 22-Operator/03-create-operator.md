@@ -10,7 +10,7 @@ Let's create the ConfigMap first:
 
 This command creates a ConfigMap with a single entry with key `operator.sh` and the operator script as content.
 
-We use again `k8spatterns/kubeapi-proxy` as a Sidecar our operator Pod as a sidecar to let the operator script access the API server at localhost. This _Sidecar_, or better _Ambassador_ (both are patterns described in the book) proxies the real API server form localhost and port 8001, much the same way as we did for locally running our operator.
+We use again `k8spatterns/kubeapi-proxy` as a Sidecar our operator Pod to let the operator script access the API server at localhost. This _Sidecar_, or better _Ambassador_ (both are patterns described in the book) proxies the real API server form localhost and port 8001, much the same way as we did for locally running our operator.
 
 Check out the full deployment, along with the proper permission setup to be able to watch ConfigMaps and delete pods:
 

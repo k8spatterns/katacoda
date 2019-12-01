@@ -19,7 +19,7 @@ data:
   message: "Welcome to the Operator Pattern !"
 ```
 
-Note, that this ConfigMap does not have any annotations and is totally disconnected to any Pods that is using this ConfigMap.
+Note that this ConfigMap does not have any annotations. It is entirely disconnected from any Pods that are using this ConfigMap.
 
 Let's deploy that application and the ConfigMap:
 

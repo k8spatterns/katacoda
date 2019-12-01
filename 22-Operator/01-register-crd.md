@@ -1,6 +1,6 @@
-In order to expand on our [Controller](21-controller), let's introduce a dedicated CRD for describing the relationship between the ConfigMap to watch and the Pods to restart when that ConfigMap changes.
+To expand on our [Controller](21-controller), let's introduce a dedicated CRD for describing the relationship between the ConfigMap to watch and the Pods to restart when that ConfigMap changes.
 
-For this we will introduce a custom resource that looks like
+For this, we will introduce a custom resource that looks like
 
 ```
 kind: ConfigWatcher
@@ -25,8 +25,8 @@ Let's apply it to our cluster:
 
 `kubectl apply -f crd.yml`{{execute}}
 
-In addition we create a role `config-watcher-crd` which grants access to this `ConfigWatcher` custom resources, so that later our operator can monitor changes on these resources:
+Also, we create a role `config-watcher-crd` which grants access to this `ConfigWatcher` custom resources, so that later our operator can monitor changes on these resources:
 
 `kubectl apply -f crd-role.yml`{{execute}}
 
-In the next step lets check out the logic of our operator which uses instances of the `ConfigWatcher` CRD as input.
+In the next step, let's check out the logic of our operator, which uses instances of the `ConfigWatcher` CRD as input.

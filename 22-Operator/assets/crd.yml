@@ -16,7 +16,7 @@ spec:
   - name: podselector
     description: Selector for Pods to restart
     type: string
-    JSONPath: .spec.podSelector[,]
+    JSONPath: .spec.podSelector
   versions:
   - name: v1
     # Enabled

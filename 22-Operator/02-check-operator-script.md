@@ -1,8 +1,8 @@
-Now let's see how our ConfigMap Watch-Operator works. It's quite similar to the controller logic that we have seen in the last scenario, but adapted to read our custom resource.
+Now let's see how our ConfigMap Watch-Operator works. It's quite similar to the controller logic that we have seen in the last scenario but adapted to read our custom resource.
 
-Again, the script is a plain shell script which we will later put into a ConfigMap that is mounted by a container and executed.
+Again, the script is a shell script which we will later put into a ConfigMap that is mounted by a container and executed.
 
-The main event loop resemble that of our controller as it uses the watch mode to get a stream of events for a ConfigMap:
+The main event loop resembles that of our controller as it uses the watch mode to get a stream of events for a ConfigMap:
 
 `bat -r 11:29 operator.sh`{{execute}}
 
@@ -12,7 +12,7 @@ In the case that a modified ConfigMap is detected, the function `restart_pods_de
 
 `bat -r 31:39 operator.sh`{{execute}}
 
-This method in turn fetches all `ConfigWatcher` resources that refer to the ConfigMap for which the MODIFIED event has been fired. This is done via the function `get_config_watcher_for_cm`:
+Here, the function fetches all `ConfigWatcher` resources that refer to the ConfigMap for which the MODIFIED event has been received. This is done via the function `get_config_watcher_for_cm`:
 
 `bat -r 41:50 operator.sh`{{execute}}
 
@@ -24,7 +24,7 @@ to get a format suitable for a deletion of the Pods in `delete_pods_with_selecto
 
 `bat -r 65:85 operator.sh`{{execute}}
 
-The Pod deletion is simular to the way how the controller deleted Pods.
+The Pod deletion is similar to the way how the controller deleted Pods.
 
 ------------
 

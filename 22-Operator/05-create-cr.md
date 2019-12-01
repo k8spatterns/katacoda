@@ -1,4 +1,4 @@
-In order to connect the ConfigMap and the application's Pods we are creating the following custom resource:
+To connect the ConfigMap and the application's Pods, we are creating the following custom resource:
 
 ```
 kind: ConfigWatcher
@@ -31,7 +31,7 @@ Heureka! You can verify that it was indeed our controller who performed the rest
 `pod=$(kubectl get pod -o name | grep operator | sed -e "s/^pods\///")`{{execute}}
 `kubectl log $pod -c config-watcher`{{execute}}
 
-Finally let's check how our resource is shown via `kubectl`:
+Finally, let's check how our resource is shown via `kubectl`:
 
 `kubectl get cw`{{execute}}
 
