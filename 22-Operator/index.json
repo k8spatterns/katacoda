@@ -1,6 +1,6 @@
 {
-  "title": "Controller",
-  "description": "Let's implement a simple Kubernetes Controller in plain shell script.",
+  "title": "Operator",
+  "description": "Learn how to extend our Controller from the previous scenario to become an Operator which tracks a dedicated custom resource.",
   "difficulty": "Intermediate",
   "time": "20 minutes",
   "details": {
