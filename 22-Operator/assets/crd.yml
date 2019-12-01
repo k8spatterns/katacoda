@@ -15,8 +15,8 @@ spec:
     JSONPath: .spec.configMap
   - name: podselector
     description: Selector for Pods to restart
-    type: object
-    JSONPath: .spec.podSelector
+    type: string
+    JSONPath: .spec.podSelector[,]
   versions:
   - name: v1
     # Enabled

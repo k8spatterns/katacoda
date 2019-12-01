@@ -6,12 +6,12 @@
   "details": {
     "steps": [
       {
-        "title": "A ConfigWatcher custom resource",
+        "title": "ConfigWatcher custom resource",
         "text": "01-register-crd.md",
         "code": "launch-kubernetes.sh"
       },
       {
-        "title": "Understand Operator logic",
+        "title": "Understanding the Operator logic",
         "text": "02-check-operator-script.md"
       },
       {
